@@ -3,21 +3,19 @@ import { render } from 'react-dom';
 import './index.html';
 
 const App = () => {
-  const password = '';
-  const usermane = '';
+  const password = 'Beescale2020*';
+  const username = 'Tom';
 
   const requestOption = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      grant_type: 'password',
-      username: usermane,
-      password: password,
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     },
-    //body: JSON.stringify({ title: 'REACT POST Request Example' }),
+    mode: 'no-cors',
+    body: `grant_type=password&username=${username}&password=${password}`,
   };
 
-  fetch('https://www.beescale.cloud/Token', requestOption)
+  fetch(`https://www.beescale.cloud/Token`, requestOption)
     .then((resp) => resp.json())
     .then((json) => console.log(json));
 
@@ -33,3 +31,5 @@ const App = () => {
   );
 };
 render(<App />, document.querySelector('#app'));
+
+//
